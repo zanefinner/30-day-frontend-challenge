@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2</title>
+    <style>
+        html, body{
+            background-color: rgb(235, 235, 235);
+        }
+        button{
+            border: 3px solid rgb(100,100,100);
+            border-radius: 3px;
+            padding: 3px;
+            margin: 7px;
+            background-color: rgb(100,100,100);
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 0 rgb(80,80,80);
+            transition-duration: 0.1s;
+        }
+        button:hover{
+            background-color: rgb(120,120,120);
+            color: white;
+        }
+        button:active{
+            box-shadow: 0 0 0 0;
+            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+        button.light{
+            border: 3px solid rgb(200,200,200);
+            border-radius: 3px;
+            padding: 3px;
+            margin: 7px;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 0 rgb(180,180,180);
+            
+            transition-duration: 0.1s;
+        }
+        button.light:hover{
+            background-color: rgb(245, 245, 245);
+        }
+        button.light:active{
+            margin-top: 10px;
+            margin-bottom: 4px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 0 0;
+
+        }
+        button.circle-button{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+        button.spinny-button{transition-duration: 0.22s;}
+        button.spinny-button:active{
+            transform: rotate(360deg);
+        }
+
+        .hidden{
+            height: 0;
+            width: auto;
+            color: transparent;
+            transition-duration: 0.3s;
+
+        }
+        button.peek-button:hover .hidden{
+            height: auto;
+            width: auto;
+            color: white;
+        }
+        button.outline-button{
+            background-color: transparent;
+            color: rgb(40,40,40);
+            border: 3px solid rgb(40,40,40);
+            border-radius: 3px;
+            box-shadow: 0 0 0 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Css Button Pack</h1>
+    <ul style="list-style-type: none;">
+        <li><button>Normal Button</button></li>
+        <li><button class="outline-button">Outline Button</button></li>
+        <li><button class="light">Light Button</button></li>
+        <li><button class="circle-button">Circle Button</button></li>
+        <li><button class="spinny-button"> Rotating Button</button></li>
+        <li><button class="peek-button">Button with Peek <div class="hidden">visible</div></button></li>
+    </ul>
+</body>
+</html>
