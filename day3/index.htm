@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3</title>
+    <style>
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            height: 500px;
+            width: 500px;
+            border-radius: 13px;
+        }
+        .circle{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 12px;
+            width: 12px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        html, body{
+            background-color: rgb(40,40,40);
+        }
+    </style>
+    <script>
+        window.addEventListener(`load`, ()=>{
+
+            let currentTime = 0000;
+
+            console.log(`start`);
+            class Circle
+            {
+
+                constructor(sourceOf, itemNum)
+                {
+                    this.src = document['getElementsByClassName'](sourceOf)[itemNum];
+                    this.posX = 50;
+                    this.posY = 50;
+                }
+            }                
+            var circles = 
+            [
+                new Circle('circle', 0),
+                new Circle('circle', 1),
+                new Circle('circle', 2),
+                new Circle('circle', 3),
+                new Circle('circle', 4),
+            ];
+            
+
+            const loop=(progTime)=>
+            {
+                var timeGap = 0;
+                circles
+                    .forEach(
+                        (e)=>
+                        {
+                            timeGap += 50;
+                            e.posY = Math.round( Math.sin(progTime/300+timeGap)*25 )+50;
+                            e.src.style.top = e.posY+"%";
+                            e.posX = Math.round( Math.cos(progTime/300+timeGap)*50 )+50;
+                            e.src.style.left = e.posX+"%";
+                        }
+                    )
+                    console.log(circles[0].posY);
+                    currentTime += 1000/30;
+            }
+            loop(3);
+            setInterval(()=>{
+                loop(currentTime);
+            },1000/60);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+</body>
+</html>
