@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5</title>
+    <style>
+        .left-nav{
+            position: fixed;
+            left: -220px;
+            top: 0;
+            height: 100%;
+            width: 265px;
+            background-color: rgb(40,40,40);
+            transition-duration: 0.4s;
+            z-index:99;
+        }
+        .left-nav:hover{
+            left: 0;
+        }
+        .left-nav:hover .vert{
+            color: transparent;
+        }{
+            left: 0;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            text-align: center;
+            margin: 0;
+            left: 0;
+        }
+        a{
+            color: white;
+        }
+        h2{
+            text-align: center;
+        }
+        .content{
+            position: absolute;
+            left: 45px;
+            padding: 10px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(245, 245, 245);
+            transition-duration: 0.55s;
+        }
+        .left-nav:hover + .content{
+            left: 265px;
+        }
+        .vert{
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: white;
+            font-family: monospace;
+            font-size: 45px;
+            width: 45px;
+            text-align: center;
+            transition-delay: 0.3s;
+            transition-duration: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-nav">
+        <h2><a href="#">My Site</a></h2>
+        <ul>
+            <li><a href="..">Home</a></li>
+            <li><a href="..">Account</a></li>
+            <li><a href="..">Other Link</a></li>
+        </ul>
+        <div class="vert">
+            M<br>
+            E<br>
+            N<br>
+            U<br>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Hello, World!</h1>
+        <p>Try and hover the left nav's stripe</p>
+    </div>
+</body>
+</html>
