@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 8</title>
+    <style>
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 600px;
+            width: 800px;
+            background-color: rgb(254, 254, 254);
+            box-shadow: 4px 4px 3px rgb(0,0,0,0.3);
+            transform:
+                translate(-50%, -50%);
+        }
+        .tabs{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 34px;
+            width: 100%;
+            display: flex;
+            background-color: rgb(247,247,247);
+        }
+        .tab{
+            padding-left: 20px;
+            padding-right: 20px;
+            line-height: 34px;
+            font-size: 16px;
+            cursor: pointer;
+            transition-duration: 0.2s;
+            background-color: transparent;
+        }
+        .tab:hover{
+            background-color: rgb(0,0,0,0.02);
+        }
+        .in-use{
+            border-top: 3px solid rgb(10,245,50);
+            background-color: rgb(255, 255, 255);
+        }
+        .content{
+            position: absolute;
+            top: 40px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            overflow: scroll;
+        }
+        html, body{
+            background-color: rgb(234, 234, 234);
+        }
+    </style>
+    <script>
+        window.addEventListener(`load`, ()=>
+        {
+            var tabs = document.getElementsByClassName('tab');
+            var content = document.getElementsByClassName('option');
+            content[0].style.display = "none";
+            content[1].style.display = "none";
+            content[2].style.display = "none";
+            function show(item)
+            {
+                if(item==0)
+                {
+                    tabs[0].classList.add("in-use");
+                    tabs[1].classList.remove("in-use");
+                    tabs[2].classList.remove("in-use");
+                    content[0].style.display = "block";
+                    content[1].style.display = "none";
+                    content[2].style.display = "none";
+                }
+                else if(item==1)
+                {
+                    tabs[0].classList.remove("in-use");
+                    tabs[1].classList.add("in-use");
+                    tabs[2].classList.remove("in-use");
+                    content[0].style.display = "none";
+                    content[1].style.display = "block";
+                    content[2].style.display = "none";
+                }
+                else if(item==2)
+                {
+                    tabs[0].classList.remove("in-use");
+                    tabs[1].classList.remove("in-use");
+                    tabs[2].classList.add("in-use");
+                    content[0].style.display = "none";
+                    content[1].style.display = "none";
+                    content[2].style.display = "block";
+                }
+            }
+            for(let c=0; c<3; c++)
+            {
+                tabs[c].addEventListener(`click`, ()=>
+                {
+                    show(c);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab">Tab 1</div>
+            <div class="tab">Tab 2</div>
+            <div class="tab">Tab 3</div>
+        </div>
+        <div class="content">
+            <div class="option">Tab 1 is now open</div>
+            <div class="option">Hii, I'm tab 2!</div>
+            <div class="option">Tab 3, comin' atchu</div>
+        </div>
+    </div>
+</body>
+</html>
