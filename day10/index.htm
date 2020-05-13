@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10</title>
+    <style>
+        body, html{
+            margin: 0;
+        }
+        .parallax{
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-repeat: repeat-y;
+        }
+        .content{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: auto;
+            background-color: rgb(0,0,0,0.3);
+            color: white;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <img class="parallax" src="img_exmp.jpeg"/>
+    <div class="content">
+        <h1>Welcome to my simple Parallax example</h1>
+        <p>You may have to shrink your page to make this work. Try to scroll to see the effect</p>
+    <div style="padding-bottom: 500px"></div>
+    <h1>Wee!</h1>
+    <div style="padding-bottom: 500px"></div>
+    <p>Whoa!</p>
+    </div>
+    <script>
+
+        var components = {
+            parallax : document.getElementsByClassName(`parallax`)[0],
+            content : document.getElementsByClassName(`content`)[0]
+        };
+
+        var rate = 0.4;
+
+        function main()
+        {
+            window.addEventListener(`scroll`, ()=>{
+                //find how far scrolled you are,
+                //adjust background to amount
+                components.parallax.style.top = -1*rate*window.pageYOffset+"px";
+            });
+            console.log('hi');
+        }
+
+        window.addEventListener(`load`, main);
+    </script>
+</body>
+</html>
